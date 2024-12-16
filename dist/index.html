@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../assets/images/Dlogo.svg" />
+    
+    <!-- CSS Links -->
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="output.css"> <!-- Adjusted path for output.css -->
+
+    <title>Dasig PF</title>
+</head>
+<body class="text-black bg-gradient-to-t from-custombg to-white dark:bg-gradient-to-t dark:from-gray-900 dark:to-gray-800 dark:text-gray-200">
+
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200 dark:bg-gray-900 dark:border-gray-600">
+        <div class="flex flex-wrap items-center justify-between max-w-screen-xl p-4 mx-auto">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo"> <!-- flowbite logo or change it-->
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Dasig</span>
+            </a>
+            <div class="flex space-x-3 md:order-2 md:space-x-0 rtl:space-x-reverse">
+                <button data-collapse-toggle="navbar-sticky" type="button" class="inline-flex items-center justify-center w-10 h-10 p-2 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+                <ul class="flex flex-col p-4 mt-4 font-medium border border-gray-100 rounded-lg md:p-0 bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <li>
+                        <a href="#" onclick="closeMenu()" class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">Home</a>
+                    </li>
+                    <li>
+                        <a href="#about" onclick="closeMenu()" class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                    </li>
+                    <li>
+                        <a href="#internship" onclick="closeMenu()" class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Internship Overview</a>
+                    </li>
+                    <li>
+                        <a href="#projects" onclick="closeMenu()" class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Projects</a>
+                    </li>
+                    <li>
+                        <a href="#contact" onclick="closeMenu()" class="block px-3 py-2 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                    </li>
+                    <li>
+                        <label class="inline-flex items-center cursor-pointer me-5">
+                            <input 
+                                type="checkbox" 
+                                id="darkModeToggle" 
+                                class="sr-only peer" 
+                                onchange="toggleDarkMode()"
+                            >
+                            <div class="relative w-11 h-6 bg-gray-200 rounded-full peer dark:bg-gray-700 peer-focus:ring-4 peer-focus:ring-purple-300 dark:peer-focus:ring-purple-800 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-purple-600"></div>
+                            <span id="toggleLabel" class="text-sm font-medium text-gray-900 ms-3 dark:text-gray-300">Dark Mode</span>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="container flex items-center justify-center min-h-screen py-20 mx-auto overflow-hidden dark:bg-heroDark bg-heroLight">
+        <div class="grid items-center justify-center w-full max-w-6xl gap-6 md:grid-cols-6">
+            <div class="text-center lg:col-span-2 sm:pl-2 md:col-span-3 md:text-left">
+                <h5 class="font-medium text-gray-600 dark:text-gray-200">Hello Welcome</h5>
+                <h1 class="text-4xl font-medium sm:text-5xl dark:text-white">
+                    I'm <span class="transition duration-300 ease-in-out text-primary hover:text-blue-700">John Paul</span> <br />
+                    Programmer <br />
+                    Student
+                </h1>
+                <button class="mt-5 btn btn-filled">
+                    <a href="mailto:dasig.jp2017@gmail.com?subject=Inquiry%20from%20Portfolio&body=Hello,
+                    %0A%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20connect.
+                    %20Please%20let%20me%20know%20if%20you%20are%20available%20to%20discuss.%0A%0AThank%20you!" class="mt-5 btn btn-filled">
+                    <i class="fa-regular fa-envelope"></i> Email me
+                    <!-- message to be sent to me: Hello,
+                    I came across your portfolio and would like to connect. Please let me know if you are available to discuss.
+                    Thank you!-->
+                    </a>                                     
+                </button>
+                <a href="#about">
+                    <button class="ml-4 font-semibold border-b-2 border-gray-700 dark:text-gray-200">
+                        <i class="fa-solid fa-up-right-from-square"></i> See Projects
+                    </button>
+                </a>
+                <p class="max-w-md px-2 mx-auto text-xs leading-5 text-balance mt-9 dark:text-gray-300">
+                    I am Computer Engineering student passionate about programming, robotics and automation, dedicated to creating innovative solutions that enhance accessibility and user experience.
+                </p>
+                <div class="flex items-center justify-center gap-6 text-gray-600 md:justify-end dark:text-gray-200 mt-9">
+                    <p class="text-xs">Follow me</p>
+                    <div class="flex justify-end gap-3">
+                        <a href="https://www.youtube.com/@dasig3010" target="_blank" class="social-icon">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/dasigjp2024" target="_blank" class="social-icon">
+                            <i class="fa-brands fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.facebook.com/profile.php?id=100089690865429" target="_blank" class="social-icon">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-center lg:col-span-2 md:col-span-3">
+                <div class="relative overflow-hidden transition-transform duration-300 transform rounded-lg shadow-lg group hover:scale-105 shadow-blue-500 hover:shadow-2xl hover:shadow-blue-500 hover:bg-blue-50">
+                <img src="../assets/images/me.png" class="w-2/3 mx-auto mt-5 md:w-full max-w-96 md:mt-0" alt="me">
+                </div> 
+            </div>
+             
+            <div class="w-full mt-2 shadow-md lg:col-span-2 md:col-span-6 lg:bg-gradient-to-l md:bg-none shadow-blue-500 bg-gradient-to-l dark:from-slate-800 from-gray-100 lg:h-96 md:h-auto h-96">
+                <ul class="text-2xl leading-[3.14rem] text-center pt-5 lg:block md:flex items-center justify-between">
+                    <!-- Number of completed projects -->
+                    <li data-slot="count">3</li>
+                    <li>Completed <span class="text-primary">Projects</span></li>
+                    <br />
+                    <!-- Programming languages with small icons -->
+                    <li class="text-lg">
+                        <span class="text-primary">Languages:</span>
+                    </li>
+                    <!-- First row with 4 logos -->
+                    <li class="flex justify-center gap-4 pt-3">
+                        <img src="../assets/images/pylogo.webp" alt="Python" class="w-10 h-10" />
+                        <img src="../assets/images/javalogo.svg" alt="Java" class="w-10 h-10" />
+                        <img src="../assets/images/jscriptlogo.png" alt="JavaScript" class="w-10 h-10" />
+                        <img src="../assets/images/html5logo.png" alt="HTML 5" class="w-10 h-10" />
+                    </li>
+                    <!-- Second row with 3 logos -->
+                    <li class="flex justify-center gap-4 pt-3">
+                        <img src="../assets/images/css3logo.png" alt="CSS 3" class="w-10 h-10" />
+                        <img src="../assets/images/less_logo.png" alt="Less js css" class="w-10 h-10" />
+                        <img src="../assets/images/arduinologo.png" alt="Arduino" class="w-10 h-10" />
+                        <img src="../assets/images/rasplogo.png" alt="Raspberry Pi" class="w-10 h-10" />
+                        
+                    </li>
+                    <!-- Download CV button -->
+                    <li>
+                        <a href="../assets/cv/John_Paul_Dasig_RESUME.pdf" download>
+                            <button type="button" class="px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                                Download CV
+                            </button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto">
+            <h2 class="mb-8 text-3xl font-bold text-center">About Me</h2>
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full text-center md:w-1/2">
+                    <p class="text-gray-700 dark:text-gray-200">
+                        Hello! I'm <strong class="font-bold text-blue-500">John Paul</strong>, a passionate programmer and technology enthusiast currently pursuing my studies in Computer Engineering.
+                        I have a strong foundation in programming languages and am always eager to expand my skill set through various online courses and practical projects. 
+                        My dedication to continuous learning is reflected in my achievements, including a certificate from Udemy and several badges from Cisco Networking Academy (NetAcad).
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="default-carousel" class="relative z-0 max-w-md mx-auto" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-80" > 
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out " data-carousel-item>
+                    <a href="https://www.credly.com/badges/a5fb6def-2ea0-4d20-b801-1d64d140de73" target="_blank">
+                        <img src="../assets/carousel/1.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 1">
+            </a>
+                    </a>
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="https://www.credly.com/badges/a4ca105d-a8e9-439d-b361-d5abcffe58ee" target="_blank">
+                        <img src="../assets/carousel/2.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 2">
+                    </a>
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="https://www.credly.com/badges/bf0276b8-a341-468b-a65e-d0ae98646a41" target="_blank">
+                        <img src="../assets/carousel/3.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 3">
+                    </a>
+                </div>
+                <!-- Item 4 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="https://www.udemy.com/certificate/UC-4d9fa9c8-b384-40d5-8d3f-4c57ab5f065a/" target="_blank">
+                        <img src="../assets/carousel/4.jpg" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 4">
+                    </a>
+                </div>
+            </div>
+            <!-- Slider indicators -->
+            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2 rtl:space-x-reverse">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+            </div>
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer start-0 group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer end-0 group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        </div>
+              
+    </section>
+
+    <!-- Internship Ovreview-->
+    <section id="internship" class="py-20">
+        <div class="container mx-auto">
+            <h2 class="mb-8 text-3xl font-bold text-center">Internship Overview</h2>
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full text-center md:w-1/2">
+                    <p class="text-gray-700 dark:text-gray-200">
+                        During my internship at <a href="https://uip.ph" target="_blank" class="font-bold text-blue-500">Unified Internship Program Incorporated</a>, I worked as an intern in the <strong class="font-bold text-blue-500">Web Development Team</strong>, contributing to various web development projects. 
+                        The company, operating remotely due to its online internship program, provided an excellent environment for learning and professional growth. 
+                        My internship spanned from October 18, 2024, to November 28, 2024, totaling 300 hours, exceeding the 240 hours required by my school, 
+                        the Technological Institute of the Philippines, Manila. As part of the team, I played a key role in developing software solutions, managing 
+                        tasks, and ensuring project deadlines were met effectively. My responsibilities included conducting team meetings through virtual platforms, 
+                        coding website functionalities using Laravel and Tailwind CSS, performing system testing, and collaborating with team members to address
+                         challenges and deliver quality outputs.
+                    </p>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+     <!-- Weekly HighLights-->
+     <section id="Weekly" class="py-20">
+        <div class="container mx-auto">
+            <h2 class="mb-8 text-3xl font-bold text-center">Weekly Internship Highlights</h2>
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full text-center md:w-1/2">
+                    <p class="text-gray-700 dark:text-gray-200">
+                        Each week of my internship brought new opportunities to learn and grow. In the first week, 
+                        I participated in an orientation session and started working on a portfolio task using Tailwind CSS. 
+                        The second week focused on studying Laravel for backend functionalities and planning for our main project. 
+                        By the third week, I collaborated with my team to start coding the project's foundational features and set 
+                        up a productive workflow. The fourth and fifth weeks involved developing CRUD functionalities in Laravel 
+                        and refining the UI/UX design of our project. In the sixth week, my team completed the final stages of the project, 
+                        including testing and debugging, to ensure it met quality standards. Finally, during the seventh and last week of my 
+                        internship, I presented our completed project to the supervisor, demonstrating the skills and knowledge 
+                        I gained during the program.
+                    </p>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+
+    <!-- Intership Project Screenshots -->
+    <section id="IntershipWorks" class="py-20">
+        <div class="container mx-auto">
+            <h2 class="mb-8 text-3xl font-bold text-center">Internship Main Project</h2>
+            <div class="flex flex-wrap justify-center">
+                <div class="w-full text-center md:w-1/2">
+                    <p class="text-gray-700 dark:text-gray-200">
+                        The primary project during my internship involved the development of a 
+                        <strong class="font-bold text-blue-500">Preboarding and Offboarding Web Application</strong>, This application aimed to streamline 
+                        the onboarding and offboarding processes for employees, providing functionalities such as user management, 
+                        task tracking, and data handling.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div id="default-carousel" class="relative z-0 max-w-md mx-auto" data-carousel="slide">
+            <!-- Carousel wrapper -->
+            <div class="relative h-56 overflow-hidden rounded-lg md:h-80" > 
+                <!-- Item 1 -->
+                <div class="hidden duration-700 ease-in-out " data-carousel-item>
+                    <a href="https://www.credly.com/badges/a5fb6def-2ea0-4d20-b801-1d64d140de73" target="_blank">
+                        <img src="../assets/carousel2/1.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 1">
+            </a>
+                    </a>
+                </div>
+                <!-- Item 2 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="https://www.credly.com/badges/a4ca105d-a8e9-439d-b361-d5abcffe58ee" target="_blank">
+                        <img src="../assets/carousel2/2.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 2">
+                    </a>
+                </div>
+                <!-- Item 3 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="https://www.credly.com/badges/bf0276b8-a341-468b-a65e-d0ae98646a41" target="_blank">
+                        <img src="../assets/carousel2/3.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 3">
+                    </a>
+                </div>
+                <!-- Item 4 -->
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="https://www.udemy.com/certificate/UC-4d9fa9c8-b384-40d5-8d3f-4c57ab5f065a/" target="_blank">
+                        <img src="../assets/carousel2/4.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 4">
+                    </a>
+                </div>
+                <div class="hidden duration-700 ease-in-out" data-carousel-item>
+                    <a href="https://www.udemy.com/certificate/UC-4d9fa9c8-b384-40d5-8d3f-4c57ab5f065a/" target="_blank">
+                        <img src="../assets/carousel2/5.png" class="absolute block object-contain w-full h-full transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="Certificate 4">
+                    </a>
+                </div>
+                
+            </div>
+            <!-- Slider indicators -->
+            <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2 rtl:space-x-reverse">
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+                <button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+            </div>
+            <!-- Slider controls -->
+            <button type="button" class="absolute top-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer start-0 group focus:outline-none" data-carousel-prev>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+                    </svg>
+                    <span class="sr-only">Previous</span>
+                </span>
+            </button>
+            <button type="button" class="absolute top-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer end-0 group focus:outline-none" data-carousel-next>
+                <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+                    <svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+                    </svg>
+                    <span class="sr-only">Next</span>
+                </span>
+            </button>
+        </div>
+              
+    </section>
+
+    
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-200 dark:bg-gray-700">
+        <div class="container mx-auto text-center">
+            <h2 class="mb-8 text-3xl font-bold">Projects Completed</h2>
+            <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                <!-- Project box 1 -->
+                <div class="relative overflow-hidden transition-transform duration-300 transform rounded-lg group hover:scale-105 hover:shadow-2xl hover:shadow-blue-500 hover:bg-blue-50">
+                    <!-- Backlight effect -->
+                    <div class="absolute inset-0 transition-opacity duration-300 bg-purple-500 rounded-lg opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative z-10 flex flex-col justify-between h-full p-6 bg-white shadow-md dark:bg-gray-800">
+                        <h3 class="mb-2 text-xl font-bold text-custombg">UIP Pre and Offboarding Website</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            A Preboarding and Offboarding Web Application developed during my internship, designed to streamline onboarding and offboarding processes. 
+                            The website features functionalities for user management, task tracking, and seamless integration with backend operations. 
+                            Utilizing <strong>Laravel</strong> for backend development and <strong>Tailwind CSS</strong> for the user interface, 
+                            this project demonstrates expertise in creating responsive and efficient web applications while addressing real-world organizational needs.
+                        </p>
+                    </div>
+                </div>
+                <!-- Project box 2 -->
+                <div class="relative overflow-hidden transition-transform duration-300 transform rounded-lg group hover:scale-105 hover:shadow-2xl hover:shadow-blue-500 hover:bg-blue-50">
+                    <!-- Backlight effect -->
+                    <div class="absolute inset-0 transition-opacity duration-300 bg-purple-500 rounded-lg opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative z-10 flex flex-col justify-between h-full p-6 bg-white shadow-md dark:bg-gray-800">
+                        <h3 class="mb-2 text-xl font-bold text-custombg">Mightea Milktea: Your Personalized Milk Tea Shop with AI Support</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            A user-friendly e-commerce platform dedicated to milk tea enthusiasts, offering a seamless experience 
+                            with features such as AI chat support for personalized interaction, OTP registration for secure user 
+                            sign-ups, and Google Maps integration to streamline the delivery process.  
+                            This project is part of my Software Design subject, where I focused on integrating modern e-commerce 
+                            functionalities with a smooth user interface, ensuring both efficiency and user satisfaction.
+                        </p>
+                    </div>
+                </div>
+                <!-- Project box 3 -->
+                <div class="relative overflow-hidden transition-transform duration-300 transform rounded-lg group hover:scale-105 hover:shadow-2xl hover:shadow-blue-500 hover:bg-blue-50">
+                    <!-- Backlight effect -->
+                    <div class="absolute inset-0 transition-opacity duration-300 bg-purple-500 rounded-lg opacity-0 group-hover:opacity-100"></div>
+                    <div class="relative z-10 flex flex-col justify-between h-full p-6 bg-white shadow-md dark:bg-gray-800">
+                        <h3 class="mb-2 text-xl font-bold text-custombg">Automated Door Disinfectant Spray System</h3>
+                        <p class="text-gray-700 dark:text-gray-300">
+                            An innovative IoT-based security and sanitation solution designed to enhance hygiene and safety in public spaces. 
+                            This device integrates a disinfectant spray mechanism with a smart locking system, RFID technology, and is powered by an Arduino microcontroller. 
+                            Additionally, it utilizes Blynk Cloud for real-time SMS notifications, remote monitoring, and control, 
+                            ensuring that only authorized personnel can access restricted areas. The system’s IoT capabilities allow for 
+                            seamless integration and real-time updates, enhancing security and efficiency.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    
+    
+    
+    
+    
+    
+    
+
+    <!-- Responsive Grid Section -->
+    <section id="contact" class="container p-6 mx-auto">
+        <div class="flex items-center justify-center">
+            <form class="w-full max-w-md p-4 rounded shadow-md shadow-blue-500 bg-gradient-to-r from-blue-500 to-green-500">
+                <h2 class="mb-4 text-lg font-bold text-white">Get in Touch</h2>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-bold text-white" for="name">Name:</label>
+                    <input class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="name" type="text" placeholder="Your Name">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-bold text-white" for="email">Email:</label>
+                    <input class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="email" type="email" placeholder="your@email.com">
+                </div>
+                <div class="mb-4">
+                    <label class="block mb-2 text-sm font-bold text-white" for="message">Message:</label>
+                    <textarea class="w-full px-3 py-2 leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline" id="message" rows="5" placeholder="Your Message"></textarea>
+                </div>
+                <div class="flex items-center justify-between">
+                    <button class="px-4 py-2 font-bold text-white bg-orange-500 rounded hover:bg-orange-700 focus:outline-none focus:shadow-outline" type="submit">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    
+    
+    
+
+    <!-- Footer -->
+    <footer class="p-4 mt-10 text-white bg-gradient-to-r from-blue-500 to-green-500">
+        <div class="container mx-auto text-center">
+            &copy; 2024 MyPortfolioUsing TailwindCSS. All rights reserved.
+
+        </div>
+    </footer>
+    
+
+
+    <script>
+        // Function to toggle dark mode
+        function toggleDarkMode() {
+            const htmlElement = document.documentElement;
+            const checkbox = document.getElementById('darkModeToggle');
+            const label = document.getElementById('toggleLabel');
+
+            if (checkbox.checked) {
+                htmlElement.classList.add('dark');
+                label.textContent = "Light Mode"; // Change label text when dark mode is activated
+                localStorage.setItem('theme', 'dark'); // Save user preference in local storage
+            } else {
+                htmlElement.classList.remove('dark');
+                label.textContent = "Dark Mode"; // Change label text when dark mode is deactivated
+                localStorage.setItem('theme', 'light'); // Save user preference in local storage
+            }
+        }
+
+        // Check user preference on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const theme = localStorage.getItem('theme');
+            const checkbox = document.getElementById('darkModeToggle');
+            const label = document.getElementById('toggleLabel');
+
+            if (theme === 'dark') {
+                document.documentElement.classList.add('dark');
+                checkbox.checked = true; // Set checkbox to checked
+                label.textContent = "Light Mode"; // Set label to light mode text
+            } else {
+                label.textContent = "Dark Mode"; // Set label to dark mode text
+            }
+        });
+        /*
+        //toggle menu script to auto close note: still not working!!
+        function toggleMenu() {
+        const navbar = document.getElementById('navbar-sticky');
+        const toggleButton = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+        
+        // Toggle visibility of the navbar
+        navbar.classList.toggle('hidden');
+        navbar.classList.toggle('block');
+        
+        // Update aria-expanded attribute
+        const isExpanded = navbar.classList.contains('block');
+        toggleButton.setAttribute('aria-expanded', isExpanded);
+    }
+
+    function closeMenu() {
+        const navbar = document.getElementById('navbar-sticky');
+        const toggleButton = document.querySelector('[data-collapse-toggle="navbar-sticky"]');
+
+        // Close the menu if it's currently open
+        if (navbar.classList.contains('block')) {
+            navbar.classList.remove('block');
+            navbar.classList.add('hidden');
+            toggleButton.setAttribute('aria-expanded', 'false');
+        }
+    }
+        */
+    </script>
+        
+    
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script> <!-- Adjusted file loc path for Flowbite -->
+</body>
+</html>
